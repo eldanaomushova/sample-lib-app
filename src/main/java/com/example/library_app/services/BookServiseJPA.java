@@ -13,19 +13,18 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-
 public class BookServiseJPA implements BookServices {
     private final BookMapper bookMapper;
     private final BookRepository bookRepository;
 
     public BookDTO convertEntityToDTO(Book book) {
-        return bookMapper.bookToBookDTO(book);
+        return bookMapper.bookToBookDto(book);
     }
 
     @Override
     public Optional<BookDTO> getBookById(Long id) {
         return Optional.ofNullable(
-                bookMapper.bookToBookDTO(
+                bookMapper.bookToBookDto(
                         bookRepository.findById(id)
                                 .orElse(null)
                 )
@@ -34,7 +33,7 @@ public class BookServiseJPA implements BookServices {
     @Override
     public BookDTO saveBook(BookDTO newBook) {
         return bookMapper
-                .bookToBookDTO(
+                .bookToBookDto(
                         bookRepository.save(bookMapper.bookDtoToBook(newBook))
                 );
     }
