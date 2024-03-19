@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AuthorApiController {
-
-    @GetMapping("not-found")
-    public void testNotFoundException() {
-        throw new NotFoundException();
-    }
+//
+//    @GetMapping("not-found")
+//    public void testNotFoundException() {
+//        throw new NotFoundException();
+//    }
 }

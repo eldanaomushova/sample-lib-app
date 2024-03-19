@@ -24,9 +24,6 @@ public class BookApiController {
 
     private final BookServiseJPA bookService;
     private final BookRepository bookRepository;
-    private final PublisherRepository publisherRepository;
-    private final BookMapper bookMapper;
-
     @GetMapping
     public ResponseEntity<List<BookDTO>> getAllBooks() {
         List<BookDTO> books = bookService.getAllBooks();
@@ -77,9 +74,4 @@ public class BookApiController {
         System.out.println("before save: " + book.toString());
         return bookRepository.save(book);
     }
-
-
-
-
-
 }
